@@ -1,12 +1,34 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+//import Axios from 'axios';
 import { Products, Navbar } from './components';
 
 const App = () => {
+    const [products, setProducts] = useState([]);
+
+    const fetchProducts = async () => {
+        let response = await fetch('https://cors-anywhere.herokuapp.com/https://web-lai64u320-bird-and-be.vercel.app/api/interview');
+        let data = await response.json();
+        function json2array(json){
+            var result = [];
+            var keys = Object.keys(Object.values(json));
+            keys.forEach(function(key){
+                result.push(json[key]);
+            });
+            return result;
+        } 
+        //const arr = Object.keys(data).map((key) => [key, data[key]]); 
+        setProducts(Object.values(data)[0]);
+        //return data;
+    }
+    useEffect(() => {
+         fetchProducts();
+    },[]);
+
+
     return (
         <div>
             <Navbar />
-            <Products />
+            <Products products={products} />
         </div>
     )
 }
