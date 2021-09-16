@@ -2,7 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton, Collapse } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
-import { mergeClasses } from '@material-ui/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 

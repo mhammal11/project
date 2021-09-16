@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Typography, Button, Grid } from '@material-ui/core';
+import { Container, Typography, Button, Grid, CssBaseline } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
@@ -18,7 +18,7 @@ const Cart = ({ cart, total, onRemoveFromCart, onEmptyCart }) => {
         <>
             <Grid container spacing={0} padding="50%" justifyContent="space-evenly">
                 {cart.map((el) => (
-                    <Grid el xs={12} sm={4} key={el.id} >
+                    <Grid xs={12} sm={4} key={el.id} >
                         {/* <div key={el.id}>
                             {`${el.name}: $${el.price}`}
                         </div> */}
@@ -40,6 +40,7 @@ const Cart = ({ cart, total, onRemoveFromCart, onEmptyCart }) => {
 
     return (
         <Container>
+            <CssBaseline />
             <div className={classes.toolbar} />
             <Typography className={classes.title} gutterBottom variant="h3">Your Shopping Cart</Typography>
             { isEmpty ? <EmptyCart /> : <FilledCart />}
