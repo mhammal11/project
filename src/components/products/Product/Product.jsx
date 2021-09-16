@@ -9,10 +9,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import useStyles from './styles';
 
-const Product = ({ product, onAddtoCart, onRemoveFromCart }) => {
+const Product = ({ product, onAddtoCart }) => {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
-    console.log(product)
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };

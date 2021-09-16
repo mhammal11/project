@@ -42,21 +42,17 @@ const App = () => {
         let hardCopy = [...cart];
         hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
         setCart(hardCopy);
+        cartQuantity--;
+        setCartQuantity(cartQuantity);
       };
 
-    const listItems = products.map((el) => (
-        <div key={el.id}>
-          {`${el.name}: $${el.price}`}
-          <input type="submit" value="add" onClick={() => addToCart(el)} />
-        </div>
-    ));
-      
-    const cartItems = cart.map((el) => (
-        <div key={el.id}>
-          {`${el.name}: $${el.price}`}
-          <input type="submit" value="remove" onClick={() => removeFromCart(el)} />
-        </div>
-    ));
+    const emptyCart = () => {
+        let hardCopy = [...cart];
+        hardCopy = [];
+        setCart(hardCopy);
+        cartQuantity = 0;
+        setCartQuantity(cartQuantity);
+      };  
 
     return (
         <Router>
@@ -64,15 +60,12 @@ const App = () => {
             <Navbar totalItems={cartQuantity}/>
             <Switch>
                 <Route exact path="/">
-                    <Products products={products} onAddtoCart={addToCart} onRemovefromCart={removeFromCart} />  
+                    <Products products={products} onAddtoCart={addToCart} />  
                 </Route>
                 <Route exact path="/cart">
-                    <Cart cart={cart} total={cartTotal}/>
+                    <Cart cart={cart} total={cartTotal} onRemoveFromCart={removeFromCart} onEmptyCart={emptyCart} />
                 </Route>
             </Switch>
-            {/* <div>{listItems}</div>
-            <div>CART</div>
-            <div>{cartItems}</div> */}
         </div>
         </Router>
     )
