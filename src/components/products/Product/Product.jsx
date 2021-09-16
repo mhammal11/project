@@ -9,7 +9,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import useStyles from './styles';
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddtoCart, onRemoveFromCart }) => {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     console.log(product)
@@ -37,7 +37,7 @@ const Product = ({ product }) => {
                 <Typography variant="body2" color="textSecondary">{product.meta_description}</Typography>
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to Cart">
+                <IconButton aria-label="Add to Cart" onClick={() => onAddtoCart(product)}>
                     <AddShoppingCart />
                 </IconButton>
                 <Typography fontFamily="inherit">
