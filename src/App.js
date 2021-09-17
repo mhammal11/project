@@ -13,12 +13,37 @@ const App = () => {
         let data = await response.json();
         setProducts(Object.values(data)[0]);
     }
+    // preserve cart quantity
+    useEffect(() => {
+        setCartQuantity(JSON.parse(window.localStorage.getItem('cartQuantity')));
+      }, []);
+    
+    useEffect(() => {
+        window.localStorage.setItem('cartQuantity', cartQuantity);
+    }, [cartQuantity]);
 
+    // preserve cart
+    useEffect(() => {
+        setCart(JSON.parse(window.localStorage.getItem('cart')));
+      }, []);
+    
+    useEffect(() => {
+        window.localStorage.setItem('cart', JSON.stringify(cart));
+    }, [JSON.stringify(cart)]);
+
+    // preserve cart total
+    useEffect(() => {
+        setCartTotal(JSON.parse(window.localStorage.getItem('cartTotal')));
+    }, []);
+    
+    useEffect(() => {
+        window.localStorage.setItem('cartTotal', cartTotal);
+    }, [cartTotal]);
+      
     useEffect(() => {
         fetchProducts();
     },[]);
 
-    
     useEffect(() => {
         total();
     }, [cart]);  
@@ -30,7 +55,6 @@ const App = () => {
         }
         setCartTotal(totalVal);
       };
-    
     
     const addToCart = (el) => {
         setCart([...cart, el]);

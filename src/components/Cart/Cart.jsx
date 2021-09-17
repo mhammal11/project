@@ -18,10 +18,10 @@ const Cart = ({ cart, total, onRemoveFromCart, onEmptyCart }) => {
         <>
             <Grid container spacing={0} padding="50%" justifyContent="space-evenly">
                 {cart.map((el) => (
-                    <Grid xs={12} sm={4} key={el.id} >
+                    <Grid xs={12} sm={4} key={el.id} margin="10px" >
                         <CartItem item={el} onRemoveFromCart={onRemoveFromCart} />
                     </Grid>
-    ))};
+    ))}
             </Grid>
             <div className={classes.cardDetails}>
                 <Typography variant="h4">
@@ -45,4 +45,4 @@ const Cart = ({ cart, total, onRemoveFromCart, onEmptyCart }) => {
     )
 }
 
-export default Cart
+export default Cart;

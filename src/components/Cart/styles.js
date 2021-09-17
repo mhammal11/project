@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
   },
   emptyButton: {
     minWidth: '150px',
+    marginBottom: '20px',
     [theme.breakpoints.down('xs')]: {
       marginRight: '-50px',
       marginLeft: '5px',
@@ -23,6 +24,7 @@ export default makeStyles((theme) => ({
       marginRight: '-20px',
     },
     marginLeft: '5px',
+    marginBottom: '20px',
   },
   link: {
     textDecoration: 'none',
@@ -32,6 +34,5 @@ export default makeStyles((theme) => ({
     marginTop: '10%',
     width: '100%',
     justifyContent: 'space-between',
-    minWidth: 550,
   },
 }));
