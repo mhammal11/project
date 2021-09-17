@@ -10,10 +10,10 @@ const CartItem = ({ item, onRemoveFromCart }) => {
     <Card className="cart-item">
       <CardMedia image={item.primary_image.url_standard} alt={item.name} className={classes.media} />
       <CardContent className={classes.cardContent}>
-        <Typography variant="h4">{item.name}</Typography>
-        <Typography variant="h5">{item.price}</Typography>
+        <Typography variant="h5" color="primary">{item.name}</Typography>
+        <Typography variant="h6" color="secondary">${item.price}</Typography>
       </CardContent>
-      <CardActions className={classes.cardActions}>
+      <CardActions className={classes.cardActions} >
         <Button variant="contained" type="button" color="secondary" onClick={() => onRemoveFromCart(item)}>Remove</Button>
       </CardActions>
     </Card>

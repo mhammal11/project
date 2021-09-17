@@ -19,9 +19,6 @@ const Cart = ({ cart, total, onRemoveFromCart, onEmptyCart }) => {
             <Grid container spacing={0} padding="50%" justifyContent="space-evenly">
                 {cart.map((el) => (
                     <Grid xs={12} sm={4} key={el.id} >
-                        {/* <div key={el.id}>
-                            {`${el.name}: $${el.price}`}
-                        </div> */}
                         <CartItem item={el} onRemoveFromCart={onRemoveFromCart} />
                     </Grid>
     ))};
@@ -42,7 +39,7 @@ const Cart = ({ cart, total, onRemoveFromCart, onEmptyCart }) => {
         <Container>
             <CssBaseline />
             <div className={classes.toolbar} />
-            <Typography className={classes.title} gutterBottom variant="h3">Your Shopping Cart</Typography>
+            <Typography className={classes.title} gutterBottom variant="h3" align="center">Your Shopping Cart</Typography>
             { isEmpty ? <EmptyCart /> : <FilledCart />}
         </Container>
     )
