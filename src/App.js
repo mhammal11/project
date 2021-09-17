@@ -9,7 +9,7 @@ const App = () => {
     var [cartQuantity, setCartQuantity] = useState(0);
 
     const fetchProducts = async () => {
-        let response = await fetch('https://cors-anywhere.herokuapp.com/https://web-lai64u320-bird-and-be.vercel.app/api/interview');
+        let response = await fetch('https://web-ge8buw2ff-bird-and-be.vercel.app/api/interview');
         let data = await response.json();
         setProducts(Object.values(data)[0]);
     }
