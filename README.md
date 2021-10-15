@@ -1,7 +1,4 @@
-# Website built for coding interview
-This website was built as a sample for a coding interview that required a store with a products page and a cart page
-
-## Getting Started with Create React App
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
